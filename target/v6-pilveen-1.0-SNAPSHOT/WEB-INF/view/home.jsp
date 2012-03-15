@@ -8,6 +8,6 @@
     </head>
     <body>
         <h1>Welcome to BeerShop.</h1>
-        <p>Are you an <a href="admin/home">admin</a> or a <a href="customer/home">customer</a>?</p>
+        <p>Are you an <a href="tsoha/admin/home">admin</a> or a <a href="customer/home">customer</a>?</p>
     </body>
 </html>

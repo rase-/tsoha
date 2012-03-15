@@ -13,13 +13,13 @@ import javax.validation.constraints.Pattern;
 public class BeerStyleForm {
     @Pattern(regexp="^[a-zA-Z0-9äöüÄÖÜ 'üøØ]*$", message = "The name can only consist of letters from a-z, numbers and some special characters with umlaut.")
     private String name;
-    @Pattern(regexp = "^[<>[]]*$", message = "The description should not contain any of the following characters: < > [ ]")
-    private String desription;
+    @Pattern(regexp = "^[<>]*$", message = "The description should not contain any of the following characters: < >")
+    private String description;
     @Pattern(regexp = "^[a-zA-Z0-9äöüÄÖÜ 'üøØ]*$", message = "The origin can only consist of letters from a-z, numbers and some special characters with umlaut.")
     private String origin;
 
-    public String getDesription() {
-        return desription;
+    public String getDescription() {
+        return description;
     }
 
     public String getName() {
@@ -30,8 +30,8 @@ public class BeerStyleForm {
         return origin;
     }
 
-    public void setDesription(String desription) {
-        this.desription = desription;
+    public void setDescription(String desription) {
+        this.description = desription;
     }
 
     public void setName(String name) {

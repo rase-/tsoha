@@ -28,16 +28,16 @@ public class AdminController {
     @Autowired
     BeerStyleService beerStyleService;
     
-    @RequestMapping("*")
-    public String redirectHome() {
-        return "home";
+    @RequestMapping("/home")
+    public String home() {
+        return "admin/home";
     }
     
     @RequestMapping(value = "/beerstyles", method = RequestMethod.GET)
     public String showBeerstyles(Model model) {
         model.addAttribute("beerstyleform", new BeerStyleForm());
         model.addAttribute("beerstyles", beerStyleService.listBeerStyles());
-        return "beerstyles";
+        return "admin/beerstyles";
     }
     
     @RequestMapping(value = "/beerstyles", method = RequestMethod.POST)
@@ -53,13 +53,13 @@ public class AdminController {
     public String showBeerstyle(@PathVariable Long beerStyleId, Model model) {
         model.addAttribute("beerstyle", beerStyleService.findBeerStyleById(beerStyleId));
         model.addAttribute("beerstyleform", new BeerStyleForm());
-        return "beerstyle";
+        return "admin/beerstyle";
     }
     
     @RequestMapping(value = "/beerstyles/{beerStyleId}", method = RequestMethod.POST)
     public String updateBeerstyle(@Valid @ModelAttribute BeerStyleForm beerstyleform, BindingResult result, @PathVariable Long beerStyleId) {
         if (result.hasErrors()) {
-            return "beerstyle";
+            return "admin/beerstyle";
         }
         beerStyleService.saveOrUpdate(beerstyleform);
         return "redirect:/admin/beerstyles/" + beerStyleId;
@@ -69,15 +69,15 @@ public class AdminController {
     public String showBeers(Model model) {
         model.addAttribute("beerform", new BeerForm());
         model.addAttribute("beers", beerService.list());
-        return "beers";
+        return "admin/beers";
     }
     
     @RequestMapping(value = "/beers", method = RequestMethod.POST)
     public String addBeer(@Valid @ModelAttribute BeerForm beerform, BindingResult result) {
         if (result.hasErrors()) {
-            return "beers";
+            return "admin/beers";
         }
-        // tähän kutsu logiikkaan
+        //tässä pitää funtsia että miten toi tulikaan toi BeerStyle viite tuolta formista
         return "redirect:/admin/beers";
     }
 }

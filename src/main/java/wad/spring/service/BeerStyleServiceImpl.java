@@ -38,7 +38,7 @@ public class BeerStyleServiceImpl implements BeerStyleService {
     public void saveOrUpdate(BeerStyleForm beerstyleform) {
         BeerStyle style = new BeerStyle();
         style.setBeers(new ArrayList<Beer>());
-        style.setDescription(beerstyleform.getDesription());
+        style.setDescription(beerstyleform.getDescription());
         style.setName(beerstyleform.getName());
         style.setOrigin(beerstyleform.getOrigin());
         beerStyleRepo.save(style);
